@@ -1,17 +1,23 @@
 {
+  "type": "module",
   "name": "interacting-with-blockchain-using-ethers",
   "version": "1.0.0",
   "description": "",
   "main": "ethTransfer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/*.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@polymarket/clob-client": "^4.11.0",
     "dotenv": "^16.4.5",
     "ethers": "^6.13.4",
     "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.7.3"
   }
 }

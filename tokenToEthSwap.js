@@ -1,5 +1,5 @@
-const { ethers } = require("ethers");
-const dotenv = require("dotenv");
+import { ethers } from "ethers";
+import dotenv from "dotenv";
 dotenv.config();
 
 // Set up provider and wallet
@@ -19,7 +19,7 @@ const DAI_ADDRESS = "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb";
 const WETH_ADDRESS = "0x4200000000000000000000000000000000000006";
 
 // Amount to swap
-const amountInDAI = ethers.parseUnits("10", 18); // 10 DAI
+const amountInDAI = ethers.parseUnits("10.2", 18); // 10 DAI
 
 async function getBalances() {
   const ethBalance = await provider.getBalance(wallet.address);
@@ -71,4 +71,5 @@ async function swapTokensForEth() {
   }
 }
 
+export { swapTokensForEth };
 swapTokensForEth();

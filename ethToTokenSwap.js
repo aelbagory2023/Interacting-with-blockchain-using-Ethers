@@ -1,5 +1,5 @@
-const { ethers } = require("ethers");
-const dotenv = require("dotenv");
+import { ethers } from "ethers";
+import dotenv from "dotenv";
 dotenv.config();
 
 // Set up provider and wallet
@@ -66,17 +66,15 @@ async function swapEthForTokens() {
     const daiReceived = balancesAfter.dai - balancesBefore.dai;
     
     // Calculate slippage
-    const slippageAmount = expectedAmountOut - daiReceived;
-    const slippagePercentage = (Number(slippageAmount) / Number(expectedAmountOut)) * 100;
-    
+    const slippage = (Number(expectedAmountOut - daiReceived) / Number(expectedAmountOut)) * 100;
     console.log(`Expected DAI: ${ethers.formatUnits(expectedAmountOut, 18)} DAI`);
     console.log(`Actual DAI received: ${ethers.formatUnits(daiReceived, 18)} DAI`);
-    console.log(`Slippage Amount: ${ethers.formatUnits(slippageAmount, 18)} DAI`);
-    console.log(`Slippage Percentage: ${slippagePercentage.toFixed(4)}%`);
+    console.log(`Slippage: ${slippage.toFixed(4)}%`);
 
   } catch (error) {
     console.error(`Error occurred during swap: ${error.message}`);
   }
 }
 
+export { swapEthForTokens };
 swapEthForTokens();
