@@ -3,11 +3,6 @@ import { ClobClient } from "polymarket/clob-client";
 import { SignatureType } from "@polymarket/order-utils";
 
 // Initialization of a client that trades directly from an EOA
-const clobClient = new ClobClient(
-  host as string,
-  (await wallet.getChainId()) as number,
-  wallet as ethers.Wallet | ethers.providers.JsonRpcSigner
-);
 
 
 async function main() {
